@@ -1,5 +1,21 @@
-<p>
-  <%= @post.title %>
-  <%= @post.content %>
-</p>
+<div class="row">
+  <div class="col-md-8 well">
+    <%= @post.title %>
+    <p>
+      <%= @post.content %>
+    </p>
+  </div>
+</div>
+
+<% @post.comments.each do |comment|%>
+  <div class="col-md-6 well">
+    <p>
+      <% coment.content %>
+    </p>
+  </div>
+<% end %>
+
+<br>
+<br>
+
 <%= link_to 'go back to all posts', posts_path %>

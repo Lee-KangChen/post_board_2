@@ -1,8 +1,12 @@
 <% @posts.each do |post| %>
-  <div>
-    <div>
-      <p><%= post.title %></p>
-      <p><%= post.content %></p>
+  <div class="row">
+    <div class="well col-md-6">
+      <p>
+        <h4><%= post.title %></h4>
+      </p>
+      <p>
+        <h4><%= post.content %></h4>
+      </p>
       <span>
         <%= link_to "Show post", post_path(post) %>
       </span>
