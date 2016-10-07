@@ -1,4 +1,4 @@
-class SessionsController > ActiveRecord::Base
+class SessionsController < ApplicationController
   def new
   end
 
@@ -18,5 +18,5 @@ class SessionsController > ActiveRecord::Base
       sessions[:user_id] = nil
       redirect_to root_path
     end
-    
+
 end
