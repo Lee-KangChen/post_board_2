@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'bootstrap-sass'
 gem 'pry'
-
+gem 'bcrypt', '~>3.1.7'
 
 
 
