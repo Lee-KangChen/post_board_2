@@ -9,6 +9,8 @@
   </div>
 </div>
 
+<h4>All Comments:</h4>
+
 <% @post.comments.each do |comment|%>
   <div class="col-md-6 well">
     <p>
@@ -17,7 +19,21 @@
   </div>
 <% end %>
 
+<h4>Leave a comment:</h4>
+<%= form_for [@post, @comment] do |f| %>
+  <div class="row">
+    <%= f.text_area :content, row: 3, class: 'col-md-4' %>
+    <div class="col-md-2">
+      <%= f.submit 'Create comment', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<br>
+
+<% end %>
+
+
 <hr>
+
 <div class="row">
   <%= link_to 'go back to all posts', posts_path %>
 </div>
