@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :users, only: [:new, :create, :edit, :update, :show]
-
+  resources :categories, only: [:index, :new, :create]
+  
   resources :posts do
     resources :comments
   end
