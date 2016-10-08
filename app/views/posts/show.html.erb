@@ -6,17 +6,21 @@
     <p>
       <%= @post.content %>
     </p>
+      <br>
+      <small>posted by </small><%= "#{@post.user.name}" %>
   </div>
 </div>
 
 <h4>All Comments:</h4>
 
-<% @post.comments.each do |comment|%>
+<% @post.comments.each do |c|%>
   <div class="row">
     <div class="col-md-6 well">
       <p>
-        <% comment.content %>
+        <%= c.content %>
       </p>
+        <br>
+        <small>commented by </small><%= "#{c.user.name}" %>
     </div>
   </div>
 <% end %>
