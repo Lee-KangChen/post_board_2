@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
     def destory
-      sessions[:user_id] = nil
+      session[:user_id] = nil
       redirect_to root_path
     end
 
