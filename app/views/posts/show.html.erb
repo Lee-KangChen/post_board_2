@@ -8,20 +8,36 @@
       <%= @post.content %>
     </p>
       <br>
-      <small>posted by </small><%= "#{@post.user.name}" %>
+      <small>posted by </small><%= @post.user.name %>
   </div>
 </div>
 
 <h4>All Comments:</h4>
 
-<% @post.comments.each do |c|%>
+<% @post.comments.each do |comment|%>
   <div class="row">
+    <div class="col-md-1 well text-center">
+      <% if logged_in? %>
+        <%= link_to vote_post_comment_path(@post, comment, vote: true), class: "btn btn-primary", method: 'post' do %>
+        Like
+        <% end %>
+      <% end %>
+      <br>
+      <%= comment.total_votes %> Votes
+      <br>
+      <% if logged_in? %>
+        <%= link_to vote_post_comment_path(@post, comment, vote: false), class: "btn btn-danger", method: 'post' do%>
+        Dislike
+        <% end %>
+      <% end %>
+    </div>
+
     <div class="col-md-6 well">
       <p>
-        <%= c.content %>
+        <%= comment.content %>
       </p>
         <br>
-        <small>commented by </small><%= "#{c.user.name}" %>
+        <small>commented by </small><%= "#{comment.user.name}" %>
     </div>
   </div>
 <% end %>

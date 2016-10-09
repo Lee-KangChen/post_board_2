@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.all.sort_by {|x| x.total_votes }.reverse
   end
 
   def new
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     if @vote.valid?
       flash[:success] = 'You vote was counted!'
     else
-      flash[:error] = "You can only vote for <strong>#{@post.title}</strong> once!".html_safe
+      flash[:error] = "You can only vote for #{@post.title} once!".html_safe
     end
 
     redirect_to :back
