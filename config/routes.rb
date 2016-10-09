@@ -21,9 +21,21 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update, :show]
   resources :categories, only: [:index, :new, :create]
-  
+
   resources :posts do
     resources :comments
+  end
+
+  resources :posts, except: [:destory] do
+    member do
+      post :vote
+    end
+
+    resources :comments, only: [:create, :show] do
+      member do
+        post :vote
+      end
+    end
   end
   # Example resource route with options:
   #   resources :products do
